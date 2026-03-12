@@ -1,23 +1,34 @@
-# Appétit
+<p align="center">
+  <img src="logo.svg" width="128" height="128" alt="Appétit">
+</p>
 
-> *Bon appétit for apps.*
+<h1 align="center">Appétit</h1>
 
-An Apple App Store-inspired web app that showcases your projects in a beautiful, browsable catalog. Built entirely with vanilla HTML, CSS, and JS — no frameworks, no build step.
+<p align="center">
+  <em>Bon appétit for apps.</em><br>
+  An App Store-inspired catalog for your projects — powered by a single JSON file.
+</p>
 
-All content is driven from a single `apps.json` file, making it easy to add, remove, or update apps without touching any code.
+<p align="center">
+  <a href="https://apps.fka.dev">Live Demo</a> ·
+  <a href="#quick-start">Quick Start</a> ·
+  <a href="#make-it-yours">Make It Yours</a>
+</p>
 
-**Live:** [apps.fka.dev](https://apps.fka.dev)
+---
+
+Appétit is a beautiful, browsable app catalog that looks and feels like the Apple App Store. It's built entirely with vanilla HTML, CSS, and JS — no frameworks, no build step, no dependencies. Just edit `apps.json` and deploy.
 
 ## Features
 
-- **App Store UI** — Dark and light themes with sidebar navigation, featured carousel, app cards, and detail pages
-- **JSON-driven** — All apps, categories, and featured items are defined in `apps.json`
-- **Brew / npx install modals** — macOS and CLI apps prompt with copy-to-clipboard install commands
-- **Category filtering** — macOS, Web, CLI, Developer Tools, Productivity
-- **Search** — Instant client-side search across names, descriptions, and features
-- **Screenshots** — Detail pages show preview images from your repos
-- **GitHub stats** — Star and fork counts displayed on every app, updatable via `update-stats.sh`
-- **Responsive** — Works on desktop and mobile
+- **App Store UI** — Sidebar navigation, featured carousel, app cards, detail pages with screenshots
+- **Dark & Light themes** — System preference detection with manual toggle, persisted in localStorage
+- **JSON-driven** — All apps, categories, and featured items defined in a single `apps.json`
+- **Install modals** — `brew install` and `npx` commands with one-click copy to clipboard
+- **Categories** — macOS, Web, CLI, Developer Tools, Productivity (or define your own)
+- **Search** — Instant client-side filtering across names, descriptions, and features
+- **GitHub stats** — Live star and fork counts, updatable with the included `update-stats.sh` script
+- **Responsive** — Desktop sidebar collapses on mobile
 - **Zero dependencies** — Pure HTML/CSS/JS, deploys anywhere as static files
 
 ## Quick Start
@@ -25,41 +36,79 @@ All content is driven from a single `apps.json` file, making it easy to add, rem
 ```bash
 git clone https://github.com/f/appetit.git
 cd appetit
-```
-
-Serve locally:
-
-```bash
 python3 -m http.server 8080
-# open http://localhost:8080
 ```
+
+Open [localhost:8080](http://localhost:8080) and you're running.
 
 ## Make It Yours
 
-1. **Edit `apps.json`** — Replace the apps with your own projects. Each app entry supports:
-   - `name`, `subtitle`, `description`, `longDescription`
-   - `icon` (URL) or `iconEmoji` with optional `iconStyle` for sizing
-   - `category` array (e.g. `["macos", "cli"]`)
-   - `platform`, `price`, `language`, `stars`, `forks`
-   - `github`, `homepage` URLs
-   - `brew` or `installCommand` for install modals
-   - `features` array and `screenshots` array
+### 1. Add your apps
 
-2. **Edit categories** — Add or remove categories in the `categories` array
+Edit `apps.json`. Each app entry supports:
 
-3. **Edit featured** — Set the `featured` array with `id`, `headline`, `title`, `subtitle`
+```jsonc
+{
+  "id": "my-app",
+  "name": "My App",
+  "subtitle": "A short tagline",
+  "description": "One-liner for list views.",
+  "longDescription": "Full description for the detail page.",
+  "icon": "https://example.com/icon.png",   // or use iconEmoji: "🚀"
+  "iconStyle": { "scale": 1.3, "objectFit": "cover", "borderRadius": "22%" },
+  "category": ["macos", "cli"],
+  "platform": "macOS",
+  "price": "Free",
+  "github": "https://github.com/you/my-app",
+  "homepage": "https://my-app.dev",
+  "language": "Swift",
+  "stars": 42,
+  "forks": 3,
+  "brew": "brew install you/tap/my-app",    // shows install modal
+  "installCommand": "npx my-app",           // alternative install modal
+  "downloadUrl": "https://github.com/you/my-app/releases/latest",
+  "requirements": "macOS 15+",
+  "features": ["Feature one", "Feature two"],
+  "screenshots": ["https://example.com/screenshot.png"]
+}
+```
 
-4. **Deploy** — Push to GitHub and enable Pages, or drop the files on any static host
+### 2. Configure categories
+
+```json
+"categories": [
+  { "id": "macos", "name": "macOS Apps" },
+  { "id": "cli", "name": "CLI Tools" },
+  { "id": "web", "name": "Web Apps" }
+]
+```
+
+### 3. Set featured apps
+
+```json
+"featured": [
+  {
+    "id": "my-app",
+    "headline": "NEW",
+    "title": "A catchy headline.",
+    "subtitle": "A longer description for the featured banner."
+  }
+]
+```
+
+### 4. Deploy
+
+Push to GitHub and enable Pages — or drop the files on any static host (Netlify, Vercel, Cloudflare Pages, S3, etc).
 
 ## Update GitHub Stats
 
-Run the included script to fetch live star/fork counts from the GitHub API:
+Fetch live star and fork counts from the GitHub API:
 
 ```bash
 ./update-stats.sh
 ```
 
-Set `GITHUB_TOKEN` for higher rate limits:
+For higher rate limits:
 
 ```bash
 GITHUB_TOKEN=ghp_xxx ./update-stats.sh
@@ -68,21 +117,21 @@ GITHUB_TOKEN=ghp_xxx ./update-stats.sh
 ## File Structure
 
 ```
-├── index.html          # Main HTML shell
-├── style.css           # All styles (dark/light themes)
-├── app.js              # App logic, routing, rendering
-├── apps.json           # All app data (edit this)
-├── logo.svg            # Favicon
-├── update-stats.sh     # GitHub stars/forks updater
-└── .nojekyll           # Prevents Jekyll processing on GitHub Pages
+├── index.html          Main HTML shell
+├── style.css           All styles (dark + light themes)
+├── app.js              Routing, rendering, carousel, modals
+├── apps.json           All app data — edit this file
+├── logo.svg            App icon / favicon
+├── update-stats.sh     Fetches GitHub stars/forks into apps.json
+├── CNAME               Custom domain for GitHub Pages
+└── .nojekyll           Prevents Jekyll processing
 ```
 
 ## Deploy to GitHub Pages
 
 1. Push to a GitHub repo
-2. Go to Settings → Pages
-3. Set source to your branch and `/` root
-4. Optionally set a custom domain via CNAME
+2. Settings → Pages → Source: branch `master`, folder `/`
+3. *(Optional)* Add a `CNAME` file with your custom domain
 
 ## License
 

@@ -390,9 +390,10 @@
       "subtitle": "Bon Appétit for Apps",
       "description": "An Apple App Store-inspired catalog of free, tiny apps built with agentic engineering and vibecoding. Pure HTML/CSS/JS — no frameworks, no build step.",
       "longDescription": "Appétit is an open-source, JSON-driven app store clone that showcases your projects in a beautiful, browsable catalog. Features a dark/light theme, sidebar navigation, featured carousel, app detail pages with screenshots, brew/npx install modals, instant search, and GitHub star counts. All content lives in a single apps.json file — edit it and deploy. Built entirely with vanilla HTML, CSS, and JS using agentic engineering and vibecoding. No frameworks, no build step, deploys anywhere as static files.",
-      "icon": null,
-      "iconEmoji": "🏪",
-      "iconStyle": {},
+      "icon": "https://raw.githubusercontent.com/f/appetit/master/logo.svg",
+      "iconStyle": {
+        "objectFit": "cover"
+      },
       "category": [
         "web"
       ],
