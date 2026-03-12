@@ -1,4 +1,10 @@
 (function () {
+  var saved = localStorage.getItem("theme");
+  if (!saved) saved = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", saved);
+})();
+
+(function () {
   "use strict";
 
   let data = null;
@@ -18,7 +24,7 @@
     github: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>`,
   };
 
-  const cardGradients = [
+  const cardGradientsDark = [
     ["#1a1a2e", "#16213e", "#0f3460"],
     ["#1a1a1a", "#2d132c", "#3a1c3f"],
     ["#0d1117", "#161b22", "#1a2332"],
@@ -26,6 +32,21 @@
     ["#1a0a2e", "#2b1055", "#3c1053"],
     ["#0a2e1a", "#0b4228", "#165a3a"],
   ];
+
+  const cardGradientsLight = [
+    ["#d4e4f7", "#c5d8f0", "#a8c4e0"],
+    ["#e8daf0", "#dcc8e8", "#ccb0dc"],
+    ["#d6e2ef", "#c8d8e8", "#b8cade"],
+    ["#d0e8ee", "#b8dce6", "#a0d0dc"],
+    ["#ddd4f0", "#cec0e8", "#baa8dc"],
+    ["#d0ead8", "#b8dcc4", "#a0d0b0"],
+  ];
+
+  function getCardGradients() {
+    return document.documentElement.getAttribute("data-theme") === "light"
+      ? cardGradientsLight
+      : cardGradientsDark;
+  }
 
   function formatNumber(n) {
     if (n >= 1000000) return (n / 1000000).toFixed(1).replace(/\.0$/, "") + "M";
@@ -80,7 +101,8 @@
   }
 
   function appCard(app, index) {
-    const g = cardGradients[index % cardGradients.length];
+    const grads = getCardGradients();
+    const g = grads[index % grads.length];
     const hasScreenshot = app.screenshots && app.screenshots.length > 0;
     const screenshotImg = hasScreenshot
       ? `<img class="card-screenshot" src="${app.screenshots[0]}" alt="${app.name}" loading="lazy">`
@@ -140,31 +162,45 @@
     nav.innerHTML = html;
   }
 
+  function renderFeaturedBanner(f) {
+    const app = data.apps.find((a) => a.id === f.id);
+    return `
+      <div class="featured-banner" data-app="${f.id}">
+        <div class="featured-content">
+          <div class="featured-label">${f.headline}</div>
+          <div class="featured-title">${f.title}</div>
+          <div class="featured-subtitle">${f.subtitle}</div>
+          ${app ? `
+          <div class="featured-app-row">
+            <div class="featured-app-icon"${iconContainerStyle(app)}>${renderIcon(app)}</div>
+            <div class="featured-app-info">
+              <div class="featured-app-name">${app.name}</div>
+              <div class="featured-app-sub">${app.subtitle}</div>
+            </div>
+            <button class="featured-get-btn" data-action="get" data-app="${app.id}">Get</button>
+          </div>` : ""}
+        </div>
+      </div>`;
+  }
+
   // Discover Page
   function renderDiscover() {
     const apps = data.apps;
-    const featured = data.featured;
-    const featuredApp = apps.find((a) => a.id === featured.id);
+    const featuredList = Array.isArray(data.featured) ? data.featured : [data.featured];
 
     const macosApps = apps.filter((a) => a.category.includes("macos"));
     const devApps = apps.filter((a) => a.category.includes("developer-tools"));
 
+    const dots = featuredList.length > 1
+      ? `<div class="carousel-dots">${featuredList.map((_, i) => `<button class="carousel-dot${i === 0 ? " active" : ""}" data-slide="${i}"></button>`).join("")}</div>`
+      : "";
+
     let html = `
-      <div class="featured-banner" data-app="${featured.id}">
-        <div class="featured-content">
-          <div class="featured-label">${featured.headline}</div>
-          <div class="featured-title">${featured.title}</div>
-          <div class="featured-subtitle">${featured.subtitle}</div>
-          ${featuredApp ? `
-          <div class="featured-app-row">
-            <div class="featured-app-icon"${iconContainerStyle(featuredApp)}>${renderIcon(featuredApp)}</div>
-            <div class="featured-app-info">
-              <div class="featured-app-name">${featuredApp.name}</div>
-              <div class="featured-app-sub">${featuredApp.subtitle}</div>
-            </div>
-            <button class="featured-get-btn" data-action="get" data-app="${featuredApp.id}">Get</button>
-          </div>` : ""}
+      <div class="carousel">
+        <div class="carousel-track">
+          ${featuredList.map((f) => renderFeaturedBanner(f)).join("")}
         </div>
+        ${dots}
       </div>
 
       <div class="section">
@@ -375,6 +411,7 @@
 
   // Router
   function navigate(view, appId) {
+    if (carouselTimer) { clearInterval(carouselTimer); carouselTimer = null; }
     const scroll = $("#contentScroll");
     scroll.scrollTop = 0;
 
@@ -501,6 +538,40 @@
       el.dataset.boundCopy = "1";
       el.addEventListener("click", () => copyToClipboard(el.dataset.copy));
     });
+
+    bindCarousel();
+  }
+
+  let carouselTimer = null;
+
+  function bindCarousel() {
+    const track = $(".carousel-track");
+    if (!track) return;
+    const slides = $$(".featured-banner", track);
+    const dots = $$(".carousel-dot");
+    if (slides.length <= 1) return;
+
+    let current = 0;
+
+    function goTo(i) {
+      current = ((i % slides.length) + slides.length) % slides.length;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dots.forEach((d, j) => d.classList.toggle("active", j === current));
+    }
+
+    dots.forEach((d) => {
+      d.addEventListener("click", (e) => {
+        e.stopPropagation();
+        goTo(parseInt(d.dataset.slide, 10));
+        resetAutoplay();
+      });
+    });
+
+    function resetAutoplay() {
+      clearInterval(carouselTimer);
+      carouselTimer = setInterval(() => goTo(current + 1), 5000);
+    }
+    resetAutoplay();
   }
 
   // Sidebar click
@@ -510,6 +581,10 @@
       if (!item) return;
       navigate(item.dataset.view);
     });
+  }
+
+  function bindLogo() {
+    $("#sidebarLogo").addEventListener("click", () => navigate("discover"));
   }
 
   // Search
@@ -565,9 +640,31 @@
 
     buildSidebar();
     navigate("discover");
+    bindLogo();
     bindSidebar();
     bindSearch();
     bindKeyboard();
+    bindThemeToggle();
+  }
+
+  function bindThemeToggle() {
+    const btn = $("#themeToggle");
+    const label = btn.querySelector(".theme-label");
+
+    function updateLabel() {
+      const current = document.documentElement.getAttribute("data-theme");
+      label.textContent = current === "dark" ? "Light Mode" : "Dark Mode";
+    }
+    updateLabel();
+
+    btn.addEventListener("click", () => {
+      const current = document.documentElement.getAttribute("data-theme");
+      const next = current === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+      updateLabel();
+      navigate(currentView, currentApp);
+    });
   }
 
   if (document.readyState === "loading") {
