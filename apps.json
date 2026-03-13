@@ -1,115 +1,133 @@
 {
-    "$schema": "https://wvw.dev/apps.schema.json",
-    "store": {
-        "name": "Jubstaa's App Store",
-        "developer": "İlker Balcılar",
-        "tagline": "Games, tools, and creative apps.",
-        "github": "https://github.com/Jubstaaa"
+  "$schema": "https://wvw.dev/apps.schema.json",
+  "store": {
+    "name": "Jubstaa's App Store",
+    "developer": "İlker Balcılar",
+    "tagline": "Games, tools, and creative apps.",
+    "github": "https://github.com/Jubstaaa"
+  },
+  "featured": [
+    {
+      "id": "pixel-guess-game",
+      "headline": "OPEN BETA",
+      "title": "Guess the hidden character pixel by pixel.",
+      "subtitle": "Pick a category, reveal the pixels, and compete on the global leaderboard."
+    }
+  ],
+  "categories": [
+    {
+      "id": "games",
+      "name": "Games"
     },
-    "featured": [
-        {
-            "id": "pixel-guess-game",
-            "headline": "OPEN BETA",
-            "title": "Guess the hidden character pixel by pixel.",
-            "subtitle": "Pick a category, reveal the pixels, and compete on the global leaderboard."
-        }
-    ],
-    "categories": [
-        { "id": "games", "name": "Games" },
-        { "id": "developer-tools", "name": "Developer Tools" }
-    ],
-    "apps": [
-        {
-            "id": "pixel-guess-game",
-            "name": "Pixel Guess",
-            "subtitle": "Guess the character behind the pixels",
-            "description": "An engaging web game where players identify pixelated images from categories like League of Legends, Valorant, and Demon Slayer.",
-            "longDescription": "Pixel Guess is a guessing game where you reveal hidden characters pixel by pixel. Pick a category, choose Easy or Hard difficulty, and try to identify the character before the image is fully revealed. Track your streak, compete on global leaderboards, and challenge yourself across multiple categories. Supports 12 languages.",
-            "icon": "https://raw.githubusercontent.com/Jubstaaa/pixelate-game-mobile/main/assets/icon.png",
-            "iconStyle": {
-                "borderRadius": "22%"
-            },
-            "category": ["games"],
-            "platform": "Web",
-            "price": "Free",
-            "github": "https://github.com/Jubstaaa/pixelate-game",
-            "homepage": "https://pixelguessgame.com",
-            "language": "JavaScript",
-            "requirements": "Any modern browser",
-            "features": [
-                "Multiple categories: LoL, Valorant, Demon Slayer and more",
-                "Easy and Hard difficulty levels",
-                "Streak tracking and global leaderboards",
-                "Progressive pixel reveal mechanic",
-                "Available in 12 languages"
-            ],
-            "screenshots": [
-                "https://ilkerbalcilar.com/api/media/file/8392a623-b7d3-4c80-a301-d4402c4d7c3e.webp"
-            ]
-        },
-        {
-            "id": "pixel-guess-mobile",
-            "name": "Pixel Guess Mobile",
-            "subtitle": "Pixel guessing game for iOS & Android",
-            "description": "The mobile version of Pixel Guess — guess pixelated characters on your phone with smooth animations and native performance.",
-            "longDescription": "Pixel Guess Mobile brings the pixel guessing experience to iOS and Android. Built with Expo and React Native, it features smooth Skia-powered animations, multiple game categories, Easy and Hard difficulty modes, streak tracking, global leaderboards, and confetti celebrations on correct guesses. Search characters with smart autocomplete and compete with players worldwide.",
-            "icon": "https://raw.githubusercontent.com/Jubstaaa/pixelate-game-mobile/main/assets/icon.png",
-            "iconStyle": {
-                "borderRadius": "22%"
-            },
-            "category": ["games"],
-            "platform": "iOS",
-            "price": "Free",
-            "github": "https://github.com/Jubstaaa/pixelate-game-mobile",
-            "homepage": "https://apps.apple.com/tr/app/pixel-guess/id6760237625",
-            "language": "TypeScript",
-            "downloadUrl": "https://apps.apple.com/tr/app/pixel-guess/id6760237625",
-            "requirements": "iOS 15.1 or later",
-            "features": [
-                "Native iOS app built with Expo",
-                "Skia-powered smooth animations",
-                "Multiple game categories",
-                "Easy and Hard difficulty modes",
-                "Streak tracking and global leaderboards",
-                "Smart autocomplete character search"
-            ],
-            "screenshots": [
-                "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ef/5d/a1/ef5da131-2420-2e1a-a2fe-a8a9db479e5f/ios_1_1.png/600x1300bb.webp",
-                "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/1b/0f/da/1b0fdaf2-dd23-1cac-ed39-952cd7d8663b/ios_1_2.png/600x1300bb.webp",
-                "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/7b/9a/3f/7b9a3f9c-531f-8724-eb92-61b5b4bb4f7e/ios_1_3.png/600x1300bb.webp",
-                "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/3b/fe/14/3bfe1467-0a9b-55b5-4a5b-e53a285e640e/ios_1_4.png/600x1300bb.webp",
-                "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/a5/ef/4f/a5ef4f2c-4882-e5af-55bb-c616c7b54e86/ios_1_5.png/600x1300bb.webp"
-            ]
-        },
-        {
-            "id": "hono-telescope",
-            "name": "Hono Telescope",
-            "subtitle": "Monitoring dashboard for Hono apps",
-            "description": "An open-source monitoring and debugging tool for Hono applications. Real-time dashboard to inspect requests, exceptions, logs, and database queries.",
-            "longDescription": "Hono Telescope provides a real-time dashboard for Hono applications running on Node.js and Bun. Middleware-based setup gives you instant visibility into API requests with URL, method, response time, and status codes. Tracks unhandled exceptions with stack traces, collects console logs tied to request context, and monitors database queries from Prisma, Sequelize, MongoDB, and Bun SQLite with execution times.",
-            "icon": "https://ilkerbalcilar.com/api/media/file/b4a5364e-c850-4582-b28d-7c234e7627ed.webp",
-            "iconStyle": {
-                "borderRadius": "50%"
-            },
-            "category": ["developer-tools"],
-            "platform": "Node.js",
-            "price": "Free",
-            "github": "https://github.com/Jubstaaa/hono-telescope",
-            "homepage": "https://www.npmjs.com/package/hono-telescope",
-            "language": "TypeScript",
-            "installCommand": "bun add hono-telescope",
-            "requirements": "Node.js or Bun, Hono framework",
-            "features": [
-                "Real-time request monitoring with response times",
-                "Exception tracking with stack traces",
-                "Log viewer tied to request context",
-                "Database query logging for Prisma, Sequelize, MongoDB",
-                "Simple middleware-based integration",
-                "MIT licensed and open source"
-            ],
-            "screenshots": [
-                "https://ilkerbalcilar.com/api/media/file/2a6e85c9-cff5-435e-8683-9291914d1385.webp"
-            ]
-        }
-    ]
+    {
+      "id": "developer-tools",
+      "name": "Developer Tools"
+    }
+  ],
+  "apps": [
+    {
+      "id": "pixel-guess-game",
+      "name": "Pixel Guess",
+      "subtitle": "Guess the character behind the pixels",
+      "description": "An engaging web game where players identify pixelated images from categories like League of Legends, Valorant, and Demon Slayer.",
+      "longDescription": "Pixel Guess is a guessing game where you reveal hidden characters pixel by pixel. Pick a category, choose Easy or Hard difficulty, and try to identify the character before the image is fully revealed. Track your streak, compete on global leaderboards, and challenge yourself across multiple categories. Supports 12 languages.",
+      "icon": "https://raw.githubusercontent.com/Jubstaaa/pixelate-game-mobile/main/assets/icon.png",
+      "iconStyle": {
+        "borderRadius": "22%"
+      },
+      "category": [
+        "games"
+      ],
+      "platform": "Web",
+      "price": "Free",
+      "github": "https://github.com/Jubstaaa/pixelate-game",
+      "homepage": "https://pixelguessgame.com",
+      "language": "JavaScript",
+      "requirements": "Any modern browser",
+      "features": [
+        "Multiple categories: LoL, Valorant, Demon Slayer and more",
+        "Easy and Hard difficulty levels",
+        "Streak tracking and global leaderboards",
+        "Progressive pixel reveal mechanic",
+        "Available in 12 languages"
+      ],
+      "screenshots": [
+        "https://ilkerbalcilar.com/api/media/file/8392a623-b7d3-4c80-a301-d4402c4d7c3e.webp"
+      ],
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "id": "pixel-guess-mobile",
+      "name": "Pixel Guess Mobile",
+      "subtitle": "Pixel guessing game for iOS & Android",
+      "description": "The mobile version of Pixel Guess — guess pixelated characters on your phone with smooth animations and native performance.",
+      "longDescription": "Pixel Guess Mobile brings the pixel guessing experience to iOS and Android. Built with Expo and React Native, it features smooth Skia-powered animations, multiple game categories, Easy and Hard difficulty modes, streak tracking, global leaderboards, and confetti celebrations on correct guesses. Search characters with smart autocomplete and compete with players worldwide.",
+      "icon": "https://raw.githubusercontent.com/Jubstaaa/pixelate-game-mobile/main/assets/icon.png",
+      "iconStyle": {
+        "borderRadius": "22%"
+      },
+      "category": [
+        "games"
+      ],
+      "platform": "iOS",
+      "price": "Free",
+      "github": "https://github.com/Jubstaaa/pixelate-game-mobile",
+      "homepage": "https://apps.apple.com/tr/app/pixel-guess/id6760237625",
+      "language": "TypeScript",
+      "downloadUrl": "https://apps.apple.com/tr/app/pixel-guess/id6760237625",
+      "requirements": "iOS 15.1 or later",
+      "features": [
+        "Native iOS app built with Expo",
+        "Skia-powered smooth animations",
+        "Multiple game categories",
+        "Easy and Hard difficulty modes",
+        "Streak tracking and global leaderboards",
+        "Smart autocomplete character search"
+      ],
+      "screenshots": [
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ef/5d/a1/ef5da131-2420-2e1a-a2fe-a8a9db479e5f/ios_1_1.png/600x1300bb.webp",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/1b/0f/da/1b0fdaf2-dd23-1cac-ed39-952cd7d8663b/ios_1_2.png/600x1300bb.webp",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/7b/9a/3f/7b9a3f9c-531f-8724-eb92-61b5b4bb4f7e/ios_1_3.png/600x1300bb.webp",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/3b/fe/14/3bfe1467-0a9b-55b5-4a5b-e53a285e640e/ios_1_4.png/600x1300bb.webp",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/a5/ef/4f/a5ef4f2c-4882-e5af-55bb-c616c7b54e86/ios_1_5.png/600x1300bb.webp"
+      ],
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "id": "hono-telescope",
+      "name": "Hono Telescope",
+      "subtitle": "Monitoring dashboard for Hono apps",
+      "description": "An open-source monitoring and debugging tool for Hono applications. Real-time dashboard to inspect requests, exceptions, logs, and database queries.",
+      "longDescription": "Hono Telescope provides a real-time dashboard for Hono applications running on Node.js and Bun. Middleware-based setup gives you instant visibility into API requests with URL, method, response time, and status codes. Tracks unhandled exceptions with stack traces, collects console logs tied to request context, and monitors database queries from Prisma, Sequelize, MongoDB, and Bun SQLite with execution times.",
+      "icon": "https://ilkerbalcilar.com/api/media/file/b4a5364e-c850-4582-b28d-7c234e7627ed.webp",
+      "iconStyle": {
+        "borderRadius": "50%"
+      },
+      "category": [
+        "developer-tools"
+      ],
+      "platform": "Node.js",
+      "price": "Free",
+      "github": "https://github.com/Jubstaaa/hono-telescope",
+      "homepage": "https://www.npmjs.com/package/hono-telescope",
+      "language": "TypeScript",
+      "installCommand": "bun add hono-telescope",
+      "requirements": "Node.js or Bun, Hono framework",
+      "features": [
+        "Real-time request monitoring with response times",
+        "Exception tracking with stack traces",
+        "Log viewer tied to request context",
+        "Database query logging for Prisma, Sequelize, MongoDB",
+        "Simple middleware-based integration",
+        "MIT licensed and open source"
+      ],
+      "screenshots": [
+        "https://ilkerbalcilar.com/api/media/file/2a6e85c9-cff5-435e-8683-9291914d1385.webp"
+      ],
+      "stars": 26,
+      "forks": 0
+    }
+  ]
 }
