@@ -60,9 +60,9 @@
     {
       "id": "pixel-guess-mobile",
       "name": "Pixel Guess Mobile",
-      "subtitle": "Pixel guessing game for iOS & Android",
+      "subtitle": "Pixel guessing game for iOS",
       "description": "The mobile version of Pixel Guess — guess pixelated characters on your phone with smooth animations and native performance.",
-      "longDescription": "Pixel Guess Mobile brings the pixel guessing experience to iOS and Android. Built with Expo and React Native, it features smooth Skia-powered animations, multiple game categories, Easy and Hard difficulty modes, streak tracking, global leaderboards, and confetti celebrations on correct guesses. Search characters with smart autocomplete and compete with players worldwide.",
+      "longDescription": "Pixel Guess Mobile brings the pixel guessing experience to iOS. Built with Expo and React Native, it features smooth Skia-powered animations, multiple game categories, Easy and Hard difficulty modes, streak tracking, global leaderboards, and confetti celebrations on correct guesses. Search characters with smart autocomplete and compete with players worldwide.",
       "icon": "https://raw.githubusercontent.com/Jubstaaa/pixelate-game-mobile/main/assets/icon.png",
       "iconStyle": {
         "borderRadius": "22%"
