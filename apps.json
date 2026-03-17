@@ -31,7 +31,7 @@
       "subtitle": "Guess the character behind the pixels",
       "description": "An engaging web game where players identify pixelated images from categories like League of Legends, Valorant, and Demon Slayer.",
       "longDescription": "Pixel Guess is a guessing game where you reveal hidden characters pixel by pixel. Pick a category, choose Easy or Hard difficulty, and try to identify the character before the image is fully revealed. Track your streak, compete on global leaderboards, and challenge yourself across multiple categories. Supports 12 languages.",
-      "icon": "https://raw.githubusercontent.com/Jubstaaa/pixelate-game-mobile/main/assets/icon.png",
+      "icon": "https://raw.githubusercontent.com/Jubstaaa/pixel-guess/main/apps/mobile/assets/icon.png",
       "iconStyle": {
         "borderRadius": "22%"
       },
@@ -40,9 +40,9 @@
       ],
       "platform": "Web",
       "price": "Free",
-      "github": "https://github.com/Jubstaaa/pixelate-game",
+      "github": "https://github.com/Jubstaaa/pixel-guess",
       "homepage": "https://pixelguessgame.com",
-      "language": "JavaScript",
+      "language": "TypeScript",
       "requirements": "Any modern browser",
       "features": [
         "Multiple categories: LoL, Valorant, Demon Slayer and more",
@@ -60,10 +60,10 @@
     {
       "id": "pixel-guess-mobile",
       "name": "Pixel Guess Mobile",
-      "subtitle": "Pixel guessing game for iOS & Android",
+      "subtitle": "Pixel guessing game for iOS",
       "description": "The mobile version of Pixel Guess — guess pixelated characters on your phone with smooth animations and native performance.",
-      "longDescription": "Pixel Guess Mobile brings the pixel guessing experience to iOS and Android. Built with Expo and React Native, it features smooth Skia-powered animations, multiple game categories, Easy and Hard difficulty modes, streak tracking, global leaderboards, and confetti celebrations on correct guesses. Search characters with smart autocomplete and compete with players worldwide.",
-      "icon": "https://raw.githubusercontent.com/Jubstaaa/pixelate-game-mobile/main/assets/icon.png",
+      "longDescription": "Pixel Guess Mobile brings the pixel guessing experience to your phone. Built with Expo and React Native, it features smooth Skia-powered animations, multiple game categories, Easy and Hard difficulty modes, streak tracking, global leaderboards, and confetti celebrations on correct guesses. Search characters with smart autocomplete and compete with players worldwide.",
+      "icon": "https://raw.githubusercontent.com/Jubstaaa/pixel-guess/main/apps/mobile/assets/icon.png",
       "iconStyle": {
         "borderRadius": "22%"
       },
@@ -72,7 +72,7 @@
       ],
       "platform": "iOS",
       "price": "Free",
-      "github": "https://github.com/Jubstaaa/pixelate-game-mobile",
+      "github": "https://github.com/Jubstaaa/pixel-guess",
       "homepage": "https://apps.apple.com/tr/app/pixel-guess/id6760237625",
       "language": "TypeScript",
       "downloadUrl": "https://apps.apple.com/tr/app/pixel-guess/id6760237625",
