@@ -128,6 +128,40 @@
       ],
       "stars": 26,
       "forks": 0
+    },
+    {
+      "id": "font-mapper",
+      "name": "FontMapper",
+      "subtitle": "Map any website's fonts to your local fonts",
+      "description": "A Chrome extension that replaces any website's fonts with your favorite local fonts — per domain, instantly. Remembers your choices forever.",
+      "longDescription": "FontMapper lets each site you visit have its own typography that you personally control. Open the popup on any page, see every font the site is using, swap each one for any font installed on your machine, and FontMapper remembers your choices per domain — different rules for different sites, applied automatically on every visit. Uses Chrome's Local Font Access API for guaranteed PostScript-name matching, native CSS @font-face substitution for fast layout-preserving swaps, and zero data collection.",
+      "icon": "https://raw.githubusercontent.com/Jubstaaa/font-mapper/main/public/icon-128.png",
+      "iconStyle": {
+        "borderRadius": "22%"
+      },
+      "category": [
+        "developer-tools"
+      ],
+      "platform": "Chrome",
+      "price": "Free",
+      "github": "https://github.com/Jubstaaa/font-mapper",
+      "homepage": "https://chromewebstore.google.com/detail/gfdmhpidmomcbghfoejkcpjdklbdcdnn",
+      "language": "TypeScript",
+      "downloadUrl": "https://chromewebstore.google.com/detail/gfdmhpidmomcbghfoejkcpjdklbdcdnn",
+      "requirements": "Chrome 103+ (or any Chromium-based browser: Edge, Brave, Arc)",
+      "features": [
+        "Per-domain font mapping — different rules for different sites",
+        "Searchable font picker with previews in each typeface",
+        "Hover to identify — highlights every element using a font",
+        "Instant preview, no page reload",
+        "Zero data collection, all stored locally"
+      ],
+      "screenshots": [
+        "https://raw.githubusercontent.com/Jubstaaa/font-mapper/main/store/screenshot-1280x800.png",
+        "https://raw.githubusercontent.com/Jubstaaa/font-mapper/main/store/screenshot-popup-1280x800.png"
+      ],
+      "stars": 0,
+      "forks": 0
     }
   ]
 }
