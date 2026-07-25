@@ -184,7 +184,7 @@
       "platform": "Tailwind CSS",
       "price": "Free",
       "github": "https://github.com/Jubstaaa/tailwind-hitslop",
-      "homepage": "https://tailwind-hitslop.vercel.app",
+      "homepage": "https://hitslop.ilkerbalcilar.com",
       "language": "CSS",
       "installCommand": "bun add tailwind-hitslop",
       "requirements": "Tailwind CSS v4 or v3",
